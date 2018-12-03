@@ -15,6 +15,10 @@ public class CtrPrincipal {
 
 		new view.FrmCadena();
 	}
+	public static void abrirPaises() {
+		new view.FrmPaises();
+	}
+	
 	public static void cerrarPrograma() {
 		System.exit(0);
 		

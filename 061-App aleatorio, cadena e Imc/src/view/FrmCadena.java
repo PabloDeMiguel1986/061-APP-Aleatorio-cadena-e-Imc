@@ -1,27 +1,22 @@
 package view;
 
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
 import javax.swing.JTextField;
 
 import controller.CtrCadena;
-import logic.LogCadena;
-
-import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class FrmCadena extends JDialog{
 
 	private static final long serialVersionUID = 1L;
 	
-	private JFrame frmCadena;
 	public static JTextField txtTexto;
 	public static JLabel lblSalida;
 	private JButton btnLongitud;
@@ -72,8 +67,11 @@ public class FrmCadena extends JDialog{
 		
 		btnLongitud.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent z) {
-				//controller.CtrCadena.longitud();
-				lblSalida.setText(String.valueOf((int)FrmCadena.txtTexto.getText().length()));
+				String str = FrmCadena.txtTexto.getText();
+				int longStr = str.length();
+				System.out.println(longStr);
+				lblSalida.setText(longStr+"");
+				//CtrCadena.longitud();
 			}
 		});
 		btnMinusculas.addActionListener(new ActionListener() {

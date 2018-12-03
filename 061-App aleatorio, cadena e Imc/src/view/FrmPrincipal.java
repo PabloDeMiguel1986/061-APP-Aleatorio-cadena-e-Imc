@@ -54,6 +54,14 @@ public class FrmPrincipal extends JFrame{
 		});
 		mnnInicio.add(mntCadena);
 		
+		JMenuItem mntPaises = new JMenuItem("Pa\u00EDses");
+		mntPaises.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CtrPrincipal.abrirPaises();
+			}
+		});
+		mnnInicio.add(mntPaises);
+		
 		JSeparator separator = new JSeparator();
 		mnnInicio.add(separator);
 		
