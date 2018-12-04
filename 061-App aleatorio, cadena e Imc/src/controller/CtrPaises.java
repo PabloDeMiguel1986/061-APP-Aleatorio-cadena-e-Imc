@@ -1,48 +1,39 @@
 package controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.awt.Color;
 
 import logic.LogPaises;
 import view.FrmPaises;
 
 public class CtrPaises {
-	public static void cargarDatos() {
+
+	public static void cargaDatos() {
 		LogPaises.cargaPaises();
 		LogPaises.cargaCapitales();
-		LogPaises.cargaEmparejamiento();
-		pintaPaises();
+		LogPaises.mezclaDatos();
+		pintaDatos();
 	}
-		private static void pintaPaises() {
-			for(String elto: LogPaises.paisesmix) {
-				FrmPaises.lstPais.add(elto);
-			}
-			for(String elto: LogPaises.capitalesmix) {
-				FrmPaises.lstCapital.add(elto);
-			}
-		
-	}
-		public static void listaPaises() {
-		
-		List<String> listaPaises = new ArrayList<String>();
-		listaPaises.add("España");
-		listaPaises.add("Francia");
-		listaPaises.add("Alemania");
-		listaPaises.add("Italia");
-		listaPaises.add("Grecia");
-		listaPaises.add("Turquia");
-		listaPaises.add("España");
-		listaPaises.add("Noruega");
-		listaPaises.add("Suecia");
-		
-		
-		for(String elto: listaPaises) {
-		
+
+	public static void pintaDatos() {
+		for (String str : LogPaises.paisesMix) {
+			FrmPaises.lstPaises.add(str);
 		}
-	
+		for (String str : LogPaises.capitalesMix) {
+			FrmPaises.lstCapitales.add(str);
+		}
 	}
 
-		
+	public static void comprobar() {
+		String pais = FrmPaises.lstPaises.getSelectedItem();
+		String capital = FrmPaises.lstCapitales.getSelectedItem();
+		boolean esAcierto = LogPaises.compruebaPareja(pais, capital);
+		if (esAcierto) {
+			FrmPaises.lblResultado.setText("ACIERTO");
+			FrmPaises.lblResultado.setForeground(Color.GREEN);;
+		} else {
+			FrmPaises.lblResultado.setText("FALLO");
+			FrmPaises.lblResultado.setForeground(Color.RED);;
+		}
 	}
-	
 
+}
